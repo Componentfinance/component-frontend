@@ -49,7 +49,7 @@ export default function FarmingTab({showFarm, type}) {
               <span>(Balance: {state.get('locking').tokens[config.cmpAddress[chainId]].balance.display})</span>
             </StakeItemTd>
           )}
-          <StakeItemTd>{state.get('locking').aprStats.apr}</StakeItemTd>
+          <StakeItemTd>{state.get('locking').aprStats.feeAPYAverage}%</StakeItemTd>
         </StakeItemContainer>
       )}
       {

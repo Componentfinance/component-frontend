@@ -5,7 +5,6 @@ import Button from '../../../../components/Button';
 import {FarmTabWithdrawModal} from './FarmTabWithdrawModal';
 import {FarmTabDepositModal} from './FarmTabDepositModal';
 import Spinner from '../../../../components/Spiner/Spinner.js';
-import styled from 'styled-components';
 import {currentTxStore} from '../../../../store/currentTxStore.js';
 import config from '../../../../config.js';
 import {chainId} from '../../../../constants/chainId.js';

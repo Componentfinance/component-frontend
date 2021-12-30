@@ -51,6 +51,7 @@ export class Locking extends NumericFormats {
     this.createLock = this.createLock.bind(this)
     this.increaseAmount = this.increaseAmount.bind(this)
     this.increaseUnlockTime = this.increaseUnlockTime.bind(this)
+    this.claim = this.claim.bind(this)
   }
 
   async init() {
@@ -59,7 +60,7 @@ export class Locking extends NumericFormats {
   }
 
   async fetchTokensParams() {
-    this.claimableCMP = (await this.distributionContract.methods.claimable(this.account).call())
+    this.claimableCMP = this.getAllFormatsFromRaw((await this.distributionContract.methods.claimable(this.account).call()))
     await Promise.all([this.getLockingParams(), this.getTokensBalances(), this.getLockerAllowance()])
     await this.calculateApr()
   }
@@ -238,6 +239,19 @@ export class Locking extends NumericFormats {
     const gasPrice = await this.web3.eth.getGasPrice();
     const gas = await this.veCMPContract.methods.withdraw().estimateGas({from: this.account})
     return this.veCMPContract.methods.withdraw().send({
+      from: this.account,
+      gas,
+      gasPrice,
+    })
+      .once('transactionHash', onTxHash)
+      .on('confirmation', onConfirmation)
+      .on('error', onError)
+  }
+
+  async claim(onTxHash, onConfirmation, onError) {
+    const gasPrice = await this.web3.eth.getGasPrice();
+    const gas = await this.distributionContract.methods.claim().estimateGas({from: this.account})
+    return this.distributionContract.methods.claim().send({
       from: this.account,
       gas,
       gasPrice,

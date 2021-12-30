@@ -12,6 +12,7 @@ import {currentTxStore} from '../../../../../../store/currentTxStore.js';
 import {TabActions} from '../../../../../../components/TabContainer/styled.js';
 import {formatDateToHuman} from '../../../../../../utils/time.js';
 import {ReactComponent as Calendar} from '../../../../../../assets/icons/ic-calendar.svg';
+import {ClaimBlock} from '../../ClaimBlock';
 
 const TABS = [
   {
@@ -42,6 +43,8 @@ export const LockingBlock = ({lockingStore}) => {
     loggedIn,
     selectWallet,
   } = useContext(DashboardContext)
+
+  const claimableCMP = lockingStore.claimableCMP
 
   const [currentTab, setCurrentTab] = useState(TABS[0])
   const [currentLockTab, setCurrentLockTab] = useState(LOCK_TABS[0])
@@ -311,6 +314,7 @@ export const LockingBlock = ({lockingStore}) => {
           >{!loggedIn ? 'Connect' : error === allowanceErrorMessage ? 'Approve' : 'Lock'}</Button>
         </TabActions>
       )}
+      <ClaimBlock claimableCMP={claimableCMP} lockingStore={lockingStore}/>
     </>
   )
 }

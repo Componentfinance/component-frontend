@@ -125,6 +125,11 @@ export class Locking extends NumericFormats {
     let distroTime = '0';
     for (let i = 1; i < 5; i++) {
       const thisWeekFees = await this.distributionContract.methods.tokens_per_week(t).call()
+      console.log('$$$$$$$$$$$$$')
+      console.log(t)
+      console.log(thisWeekFees)
+      console.log(BN(thisWeekFees).div(1e18).toString())
+      console.log('$$$$$$$$$$$$$')
 
       if (BN(thisWeekFees.toString()).gt(0)) {
         total = BN(thisWeekFees).plus(total).toString()
@@ -147,7 +152,7 @@ export class Locking extends NumericFormats {
       t = t - week;
     }
 
-    let currentTs = new Date().getTime() / 1000 | 0;
+    let currentTs = Math.floor(new Date().getTime() / 1000);
 
     if (currentTs > t) {
       let nextdistroTime = await this.distributionContract.methods.last_token_time().call();
@@ -161,11 +166,11 @@ export class Locking extends NumericFormats {
     const weeklyFees = weeklyFeesTable[1]?.rawFees || '0'
     // for future
     // const totalFees = BN(weeklyFees).div(7)
-    const feeAPYAverage = BN(fourWeekAverage).times(365).times(1e20).div(4).div(7).div(totalVeCmp).div(this.cmpPrice).toFixed(2)
+    const feeAPYAverage = BN(fourWeekAverage).times(365).times(1e20).div(4).div(7).div(totalVeCmp).toFixed(2)
     const weeklyVolume = BN(weeklyFees).times(100).div(0.02).toFixed(2)
-    const userFee = BN(weeklyFees).times(userVeCmpBalance).div(7).div(totalVeCmp).div(this.cmpPrice).toFixed(2)
+    const userFee = BN(weeklyFees).times(userVeCmpBalance).div(7).div(totalVeCmp).toFixed(2)
     const feePerVeCRV = BN(weeklyFees).times(52).div(totalVeCmp).div(1e18).toFixed(2)
-    const feeAPY = BN(weeklyFees).times(52).times(1e20).div(this.cmpPrice).div(totalVeCmp).toFixed(2)
+    const feeAPY = BN(weeklyFees).times(52).times(1e20).div(totalVeCmp).toFixed(2)
     this.aprStats = {
       apr: feeAPY.toString() === 'NaN' ? 'TBA' : `${feeAPY.toString()}%`,
       feeAPYAverage,
@@ -175,6 +180,11 @@ export class Locking extends NumericFormats {
       distroTime,
     }
     this.distroTime = distroTime
+    console.log('#############')
+    console.log(fourWeekAverage)
+    console.log(this.cmpPrice)
+    console.log(BN(fourWeekAverage).div(4).div(7).times(365).times(1e20).div(totalVeCmp).toString())
+    console.log('#############')
   }
 
   resetTokensParams() {

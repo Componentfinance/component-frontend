@@ -235,6 +235,15 @@ export default class Shell extends NumericFormats {
 
     } catch {
 
+      console.log(origin)
+      console.log(target)
+      console.log(amount)
+      console.log(this.address)
+      console.log(this.name)
+      console.log(this.symbol)
+      console.log(this.icon)
+      console.log(this.decimals)
+
       return false
 
     }

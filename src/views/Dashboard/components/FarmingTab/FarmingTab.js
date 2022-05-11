@@ -20,7 +20,6 @@ export default function FarmingTab({showFarm, type}) {
     const _deprecatedPools = []
     const _actualPools = []
     state.get('farming') && state.get('farming')[type] && Object.values(state.get('farming')[type]).forEach((el) => {
-      console.log('hello##########')
       if (el.deprecated) _deprecatedPools.push(el)
       else _actualPools.push(el)
     })
@@ -65,7 +64,7 @@ export default function FarmingTab({showFarm, type}) {
         ))
       }
       {
-        deprecatedPools.length && (
+        deprecatedPools.length ? (
           <>
             <br />
             <br />
@@ -84,7 +83,7 @@ export default function FarmingTab({showFarm, type}) {
               ))
             }
           </>
-        )
+        ) : null
       }
     </TabContainer>
   )

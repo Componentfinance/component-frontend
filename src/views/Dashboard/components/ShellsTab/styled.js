@@ -24,9 +24,7 @@ export const Symbol = styled.span`
   text-decoration: none;
 `
 export const Weight = styled.span`
-  text-align: center;
-  display: block;
-  width: 100%;
+  display: inline;
   font-size: 12px;
   text-decoration: none;
   color: ${IS_FTM ? 'inherit' : 'grey'};
@@ -127,12 +125,9 @@ export const StyledRow = withTheme(styled.div`
   padding: 12px 40px;
   cursor: pointer;
   :hover {
-    ${Farming},
-    ${Symbol},
-    ${StyledBalance},
-    ${Weight} {
-      color: ${primary.dark};
-      border-color: ${primary.dark};
+    * {
+      color: ${primary.dark} !important;
+      border-color: ${primary.dark} !important;
     }
   }
   @media (max-width: 512px) {

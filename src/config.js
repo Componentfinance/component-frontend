@@ -339,8 +339,8 @@ export default {
         },
       },
       {
-        shell: '0xf1A7B6625fc7860bF95C5c00708269Cd7f69557c',
-        name: '30% USG 30% WXDAI 30% USDC 10% USDP',
+        shell: '0x34776e08890bEeCdAc54d20C314246ccea80Cea9',
+        name: '22.5% USG 22.5% WXDAI 22.5% USDC 22.5% USDT 10% USDP',
         displayDecimals: 2,
         swapDecimals: 2,
         tag: 'STABLECOIN4',
@@ -348,12 +348,12 @@ export default {
         farming: false,
         assets: [
           {
-            address: '0x6F285B3a696FD11F9889ebBAab23a8A62C620eAA',
+            address: '0x068e56eBB63e5f98532bAF94fA1f9b9AE19Ba761',
             decimals: 18,
             icon: 'ic-usg.svg',
             name: 'USG',
             symbol: 'USG',
-            weight: '.30',
+            weight: '.225',
             derivatives: [],
           },
           {
@@ -362,7 +362,7 @@ export default {
             icon: 'dai.svg',
             name: 'Wrapped XDAI',
             symbol: 'WXDAI',
-            weight: '.30',
+            weight: '.225',
             derivatives: [],
           },
           {
@@ -371,7 +371,16 @@ export default {
             icon: 'usdc.svg',
             name: 'USD Coin',
             symbol: 'USDC',
-            weight: '.30',
+            weight: '.225',
+            derivatives: [],
+          },
+          {
+            address: '0x4ecaba5870353805a9f068101a40e0f32ed605c6',
+            decimals: 6,
+            icon: 'usdt.svg',
+            name: 'Tether Stablecoin',
+            symbol: 'USDT',
+            weight: '.225',
             derivatives: [],
           },
           {
@@ -386,9 +395,9 @@ export default {
         ],
         params: {
           alpha: '.95',
-          beta: '.75',
+          beta: '.45',
           delta: '.05',
-          epsilon: '.002',
+          epsilon: '.01',
           lambda: '1',
         },
       },
@@ -547,6 +556,15 @@ export default {
     ],
     100: [
       {
+        managerAddress: '0x3E404531f7bFee17dfCb614204Bac4de10C5864b',
+        underlyingPoolAddress: '0x34776e08890beecdac54d20c314246ccea80cea9',
+        name: 'USG/WXDAI/USDC/USDT/USDP',
+        icon: 'logo.png',
+        displayDecimals: 4,
+        decimals: 18,
+        periodDuration: 2592000,
+      },
+      {
         managerAddress: '0x79876b5062160C107e02826371dD33c047CCF2de',
         underlyingPoolAddress: '0x53De001bbfAe8cEcBbD6245817512F8DBd8EEF18',
         name: 'USDP/WXDAI/USDC',
@@ -577,15 +595,6 @@ export default {
         managerAddress: '0xc2004547637240d4d8DC376B0fe8C08C563224F9',
         underlyingPoolAddress: '0xd51Ecf96357aB928227Ef25179d12731C986Ca0b',
         name: 'CMP/XDAI',
-        icon: 'logo.png',
-        displayDecimals: 4,
-        decimals: 18,
-        periodDuration: 2592000,
-      },
-      {
-        managerAddress: '0xAB6Ef1f57a815C9DD0d9725ee5d688b8f3C54c10',
-        underlyingPoolAddress: '0xf1A7B6625fc7860bF95C5c00708269Cd7f69557c',
-        name: 'USG/WXDAI/USDC/USDP',
         icon: 'logo.png',
         displayDecimals: 4,
         decimals: 18,

@@ -111,7 +111,7 @@ const Header = ({goToIndexTab}) => {
             >
               <StyledHeaderLink href="https://omni.xdaichain.com/bridge" target="_blank">{
                 IS_ETH
-                  ? 'BSC/xDAI bridge'
+                  ? 'BSC/Gnosis chain bridge'
                   : IS_BSC
                   ? 'ETH/BSC bridge'
                   : IS_FTM

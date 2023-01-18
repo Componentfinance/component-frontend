@@ -104,8 +104,12 @@ export class Locking extends NumericFormats {
   }
 
   async getCmpPrice() {
-    const resp = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=component&vs_currencies=usd');
-    this.cmpPrice = resp.data.component.usd;
+    try {
+      const resp = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=component&vs_currencies=usd');
+      this.cmpPrice = resp.data.component.usd;
+    } catch (e) {
+      this.cmpPrice = 0
+    }
   }
 
   async calculateApr() {

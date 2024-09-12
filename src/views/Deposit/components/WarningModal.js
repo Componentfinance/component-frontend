@@ -30,7 +30,7 @@ const ModalWarning = ({
 
   const message = ( <ModalContent>
     <p> Component is in beta. </p>
-    <p> Please note that this is an early version of the Сomponent. The protocol, dapp (https://component.finance/), and all content are provided on an "as is" basis.
+    <p> Please note that this is an early version of the Сomponent. The protocol, dapp (https://component.duck.limo/), and all content are provided on an "as is" basis.
         While we have made reasonable efforts to ensure the Сomponent's security and functionality, we strongly advise anyone who chooses to use the early experimental version: Don't risk any funds you do not afford to lose.
         The Сomponent team does not give any warranties, whether express or implied, regarding the protocol's suitability or usability. The Сomponent will not be liable for any loss, whether such loss is direct, indirect, special, or consequential, suffered by any party due to their use of the Сomponent.
         Thank you for being an early adopter. </p>

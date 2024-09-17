@@ -98,6 +98,7 @@ export class Farm extends NumericFormats {
           .div(
               this.totalLockedValue.numeraire.times(underlyingPrice)
           )
+          .times(100)
           .toFixed(2)
     }
   }
